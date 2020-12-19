@@ -36,7 +36,7 @@ import { Component, Emit, Vue } from "vue-property-decorator";
 export default class Home extends Vue {
   private active: any = new LocalStorage("active").data || "/";
   private labelTypeList: Array<LabelListItem> = this.$store.state.labelTypeList;
-
+  private isCollapse: boolean = false;
   created() {
     console.log(this.$store);
   }
@@ -55,16 +55,18 @@ export default class Home extends Vue {
 
 <style lang="scss">
 .sider-wrap {
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
   .el-menu {
     border: none;
-    transition: all 0.3s;
     i {
       font-size: 24px;
       font-weight: bold;
     }
     img {
       width: 100%;
-      transition: all 0.3s;
     }
     img:hover {
       cursor: pointer;
@@ -77,7 +79,6 @@ export default class Home extends Vue {
   .el-menu-vertical-demo {
     height: 100vh;
     overflow: hidden;
-    transition: all 0.35s;
   }
 }
 </style>

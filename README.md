@@ -1,5 +1,5 @@
 # browser_label_manager
-__基于 Vue2.x + TS 制作的自用网站导航项目__😄
+__基于 Vue2.x + TS 制作的自用网站导航项目__ 😄
 ## Project setup
 ```
 yarn install
