@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "41958",
+      "name": "game",
+      "font_class": "game",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    },
+    {
+      "icon_id": "1278123",
+      "name": "图片",
+      "font_class": "tupian",
+      "unicode": "e665",
+      "unicode_decimal": 58981
+    },
+    {
+      "icon_id": "10043644",
+      "name": "学习",
+      "font_class": "xinbaniconshangchuan-",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "12732503",
+      "name": "默认应用",
+      "font_class": "morenyingyong",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    }
+  ]
+}
