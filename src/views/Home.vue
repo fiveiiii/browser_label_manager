@@ -28,12 +28,25 @@ export default class Home extends Vue {}
 /* 设置持续时间和动画函数 */
 .main-wrap {
   .main {
+    position: relative;
     display: flex;
+    z-index: 1;
+    background-image: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608397430048&di=bb55ff372b7e30944e9937e881249f33&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F008ccbd15387eeec309f1bed4f1c1353ed6a3757.jpg");
     flex-direction: column;
-    background-color: #263238;
     padding: 20px;
     overflow: auto;
     height: 100vh;
+  }
+  .main:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: inherit;
+    filter: blur(6px);
+    z-index: -1;
   }
 }
 </style>

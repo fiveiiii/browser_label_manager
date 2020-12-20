@@ -53,7 +53,7 @@ export default {
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #263238;
+  // background-color: #263238;
   box-sizing: border-box;
   overflow: hidden;
   span {

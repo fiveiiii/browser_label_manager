@@ -53,13 +53,13 @@ export default class LabelList extends Vue {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 780px) {
   .label-list {
     flex-wrap: wrap;
     .label-item {
       width: 25%;
       .title {
-        font-size: 16px;
+        font-size: 18px;
       }
       .item-desc {
         font-size: 12px;
@@ -80,7 +80,7 @@ export default class LabelList extends Vue {
   .label-item {
     box-sizing: border-box;
     padding-right: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     transition: all 0.35s;
     .item-container {
       box-sizing: border-box;
@@ -93,6 +93,7 @@ export default class LabelList extends Vue {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
       .item-head {
         display: flex;
         align-items: center;
@@ -101,6 +102,7 @@ export default class LabelList extends Vue {
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
           overflow: hidden;
+          // text-shadow: 0px 1px 1px #263238;
         }
         .icon {
           border-radius: 50%;
@@ -119,6 +121,7 @@ export default class LabelList extends Vue {
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 2;
         overflow: hidden;
+        // text-shadow: 0px 1px 1px ;
       }
     }
   }
@@ -128,6 +131,7 @@ export default class LabelList extends Vue {
     transform: translate(0px, -10px);
     .item-container {
       box-shadow: 0 1px 10px #ffff8d;
+      border: 1px solid #18ffff;
       background-color: #ffee58;
     }
   }
