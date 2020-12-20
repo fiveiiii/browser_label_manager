@@ -7,7 +7,6 @@ class AddLabelItem extends Controller {
   async addLabelItem() {
     const { ctx } = this;
     const param = { ...ctx.request.body };
-    let isError = false;
     let $,
       url = param.link;
     let res = await crawlData(url);

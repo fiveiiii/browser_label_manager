@@ -24,8 +24,6 @@ import AddLabelListItem from "@/components/AddLabellListItem.vue";
 export default class Home extends Vue {}
 </script>
 <style lang="scss">
-/* 可以设置不同的进入和离开动画 */
-/* 设置持续时间和动画函数 */
 .main-wrap {
   .main {
     position: relative;

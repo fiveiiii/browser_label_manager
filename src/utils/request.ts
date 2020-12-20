@@ -1,6 +1,7 @@
 import Axios from "axios";
 Axios.defaults.baseURL = "http://127.0.0.1:7001";
 export default class HttpRequest {
+  
   static async get(url: string): Promise<any> {
     let result: any = {};
     await Axios.get(url)

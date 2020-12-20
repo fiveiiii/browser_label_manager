@@ -78,7 +78,6 @@ export default class AddLabelListItem extends Vue {
       label["link"] = url[0];
     }
   }
-
   private labelIsExisting(list: Array<LabelListItem>): void {
     for (let i = 0; i < list.length; i++) {
       const elem = list[i];
