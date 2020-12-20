@@ -55,6 +55,8 @@ export default class Home extends Vue {
 
 <style lang="scss">
 .sider-wrap {
+  position: relative;
+  z-index: 2;
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;

@@ -76,7 +76,6 @@ export default class LabelList extends Vue {
   margin-right: -20px;
   overflow: auto;
   padding-top: 20px;
-
   .label-item {
     box-sizing: border-box;
     padding-right: 20px;

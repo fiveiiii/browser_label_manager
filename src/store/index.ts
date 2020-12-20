@@ -23,13 +23,13 @@ export default new Vuex.Store({
         list: new LocalStorage("game").data || [],
       },
       "study": {
-        title: "学习强国",
+        title: "我爱学习",
         link: "study",
         icon: 'iconfont icon-xinbaniconshangchuan-',
         list: new LocalStorage("study").data || [],
       },
       "photoReports": {
-        title: "图片素材",
+        title: "找找灵感",
         link: "photoReports",
         icon: 'iconfont icon-tupian',
         list: new LocalStorage("photoReports").data || [],

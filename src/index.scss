@@ -1,4 +1,8 @@
-body{
+$containerHeight: 95vh;
+body {
   margin: 0;
   padding: 0;
+}
+:export {
+  containerHeight: $containerHeight;
 }
