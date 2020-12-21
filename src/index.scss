@@ -2,7 +2,17 @@ $containerHeight: 95vh;
 body {
   margin: 0;
   padding: 0;
+  .el-dialog {
+    background-color: #263238;
+  }
+  .el-form-item__label {
+    color: #fff59d;
+  }
+  .el-dialog__title {
+    font-weight: bold;
+  }
 }
+
 :export {
   containerHeight: $containerHeight;
 }

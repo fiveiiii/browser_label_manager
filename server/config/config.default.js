@@ -35,7 +35,7 @@ module.exports = (appInfo) => {
   };
 
   // add your middleware config here
-  config.middleware = ["robot", "demo1"];
+  config.middleware = ["robot"];
 
   // add your user config here
   const userConfig = {

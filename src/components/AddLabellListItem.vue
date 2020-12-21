@@ -8,7 +8,7 @@
         element-loading-background="rgba(38, 50, 56, .5)"
         style="display: flex; flex-direction: column"
       >
-        <el-form :model="labelItem" :rules="rules" label-width="80">
+        <el-form ref="loginForm" :model="labelItem" :rules="rules" label-width="80">
           <el-form-item label="网站分类">
             <el-select
               style="margin-bottom: 22px; width: 100%"
@@ -45,6 +45,7 @@ import LocalStorage from "@/utils/LocalStoreage";
 import LabelListItem from "@/models/labelListItem";
 import { Component, Vue } from "vue-property-decorator";
 import HttpRequest from "@/utils/request";
+import { ElForm } from "element-ui/types/form";
 @Component
 export default class AddLabelListItem extends Vue {
   private dialogFormVisible: boolean = false;
@@ -57,39 +58,42 @@ export default class AddLabelListItem extends Vue {
     type: "default",
     desc: "",
   };
-  private rules: object = {
-    link: [{ required: true, message: "请输入网站链接", trigger: "blur" }],
-  };
   private matcht: RegExp = /^(https?:\/\/)([0-9a-z.]+)?([a-z]{2,6})?(:[0-9]+)?(\?[0-9a-z&=]+)?/i;
+  private rules: object = {
+    link: [
+      { required: true, message: "请输入网站链接", trigger: "blur" },
+      {
+        pattern: this.matcht,
+        message: "请输入正确的链接",
+        trigger: "blur",
+      },
+    ],
+  };
 
-  private checkLinkWithTheRule(label: any): void {
-    let url: any = this.matcht.exec(label["link"]);
-    console.log(url);
-    if (!url) {
-      this.$message({
-        type: "error",
-        message: "链接不符合规则,请检查!",
-      });
-      this.commitUnderway = false;
-      throw `${label["link"]} Does not meet the rules`;
-    } else {
-      label["link"] = url[0];
-    }
+  private checkLinkWithTheRule(): void {
+    (this.$refs.loginForm as ElForm).validate((valid: boolean) => {
+      if (!valid) {
+        throw new Error("Check Link");
+      }
+    });
   }
+
   private labelIsExisting(list: Array<LabelListItem>): void {
     for (let i = 0; i < list.length; i++) {
       const elem = list[i];
       if (elem.link === this.labelItem.link) {
         this.$message.error("该网站已经存在");
-        throw "link is existing";
+        throw new Error("link is existing");
       }
     }
   }
 
   private async addItem(): Promise<void> {
     if (this.commitUnderway) return;
+
+    this.checkLinkWithTheRule();
+
     this.commitUnderway = true;
-    this.checkLinkWithTheRule(this.labelItem); // 检测网址是否合规
     let res = await new HttpRequest().post("/addLabelItem", {
       link: this.labelItem.link,
     });
@@ -101,7 +105,6 @@ export default class AddLabelListItem extends Vue {
       this.commitToLocalState(this.labelItem);
       this.dialogFormVisible = false;
     } else {
-      console.log("res===>>", res);
       this.$message.error(`${res.msg || res}`);
     }
   }
@@ -123,15 +126,6 @@ export default class AddLabelListItem extends Vue {
 
 <style lang="scss">
 .add-label-list-item-wrap {
-  .el-dialog {
-    background-color: #263238;
-  }
-  .el-form-item__label {
-    color: #fff59d;
-  }
-  .el-dialog__title {
-    font-weight: bold;
-  }
   .add-btn {
     background-color: #d500f9;
     border-radius: 4px;

@@ -8,6 +8,7 @@
       </transition>
     </el-container>
     <AddLabelListItem />
+    <!-- <Regisiter /> -->
   </el-container>
 </template>
 
@@ -15,12 +16,14 @@
 import { Component, Vue } from "vue-property-decorator"; // @ is an alias to /src
 import NavHeader from "@/components/NavHeader.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import Regisiter from "@/components/Register.vue";
 import AddLabelListItem from "@/components/AddLabellListItem.vue";
 @Component({
   components: {
     NavHeader,
     Sidebar,
     AddLabelListItem,
+    Regisiter,
   },
 })
 export default class Home extends Vue {}
