@@ -39,7 +39,7 @@ export default new Vuex.Store({
   },
 
   mutations: {
-    addLabelListItem(state, labelItem: LabelListItem) {
+    ADD_LABELLISTITEM(state, labelItem: LabelListItem) {
       let key: keyof LabelTypeList = labelItem.type
       console.log("key",key)
       state.labelTypeList[key].list.push(labelItem);
@@ -47,9 +47,7 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    getLabelListItem({commit}){
-      
-    }
+    
   },
   modules: {
     app

@@ -110,7 +110,7 @@ export default class AddLabelListItem extends Vue {
   }
 
   private commitToLocalState(formData: LabelListItem): void {
-    this.$store.commit("addLabelListItem", formData);
+    this.$store.commit("ADD_LABELLISTITEM", formData);
     this.$message("标签添加成功");
     this.labelItem = {
       title: "",
