@@ -44,8 +44,6 @@
 import LocalStorage from "@/utils/LocalStoreage";
 import LabelListItem from "@/models/labelListItem";
 import { Component, Vue } from "vue-property-decorator";
-import labelTypeList from "@/models/labelTypeList";
-import LabelTypeList from "@/models/labelTypeList";
 import HttpRequest from "@/utils/request";
 @Component
 export default class AddLabelListItem extends Vue {
@@ -92,7 +90,7 @@ export default class AddLabelListItem extends Vue {
     if (this.commitUnderway) return;
     this.commitUnderway = true;
     this.checkLinkWithTheRule(this.labelItem); // 检测网址是否合规
-    let res = await HttpRequest.post("/addLabelItem", {
+    let res = await new HttpRequest().post("/addLabelItem", {
       link: this.labelItem.link,
     });
     this.commitUnderway = false;
@@ -104,7 +102,7 @@ export default class AddLabelListItem extends Vue {
       this.dialogFormVisible = false;
     } else {
       console.log("res===>>", res);
-      this.$message.error(`${res.msg}`);
+      this.$message.error(`${res.msg || res}`);
     }
   }
 

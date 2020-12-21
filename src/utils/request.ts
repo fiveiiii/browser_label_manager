@@ -1,27 +1,55 @@
-import Axios from "axios";
-Axios.defaults.baseURL = "http://127.0.0.1:7001";
+import Axios, { AxiosInstance } from "axios";
 export default class HttpRequest {
-  
-  static async get(url: string): Promise<any> {
+  httpRequest: AxiosInstance;
+  constructor() {
+    this.httpRequest = Axios.create({
+      baseURL: "http://127.0.0.1:7001",
+      timeout: 15000,
+    });
+    this.httpRequest.interceptors.request.use(
+      (config) => {
+        console.log("请求时:", config);
+        return config;
+      },
+      (err) => {
+        console.log("请求时出错:", err);
+        return Promise.reject(err);
+      }
+    );
+    this.httpRequest.interceptors.response.use(
+      (config) => {
+        console.log("响应:", config);
+        return config;
+      },
+      (err) => {
+        console.log("响应出错", err);
+        return Promise.reject(err);
+      }
+    );
+  }
+  async get(url: string): Promise<any> {
     let result: any = {};
-    await Axios.get(url)
+    await this.httpRequest
+      .get(url)
       .then((res) => {
         result = res.data;
       })
       .catch((err) => {
-        throw err;
+        result = err;
       });
     return result;
   }
 
-  static async post(url: string, data: object): Promise<any> {
+  async post(url: string, data: object): Promise<any> {
     let result: any = {};
-    await Axios.post(url, data)
+    await this.httpRequest
+      .post(url, data)
       .then((res) => {
         result = res.data;
       })
       .catch((err) => {
-        throw err;
+        console.log("Err", err);
+        result = err;
       });
     return result;
   }

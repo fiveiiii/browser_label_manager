@@ -7,7 +7,6 @@ type item = {
 };
 export default class LabelTypeList {
   default: item = { title: "", icon: "", link: "", list: [] };
-
   game: item = {
     title: "",
     link: "",

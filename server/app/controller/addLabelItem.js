@@ -14,7 +14,7 @@ class AddLabelItem extends Controller {
     if (res.name === "Error") {
       ctx.body = {
         code: 1,
-        msg: "请检查链接是否正确",
+        msg: "出现了一些错误, 无法自动获取当前网站的信息",
         data: res
       };
     } else {
@@ -41,7 +41,6 @@ class AddLabelItem extends Controller {
           result = res.data;
         })
         .catch((err) => {
-          isError = true;
           result = err;
         });
       return result;
